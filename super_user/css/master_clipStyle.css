@@ -1,0 +1,124 @@
+.showD{
+    width: fit-content;
+    margin: 20px auto;
+    margin-top: 160px;
+    background-color: #b7c3bd;
+    border-radius: 5px;
+    box-shadow: 1px 1px 10px;
+}
+
+.showD .title{
+    width: fit-content;
+    margin: auto;
+    padding: 20px;
+}
+
+.showD .coverIm{
+    max-width: 600px;
+    padding: 10px;
+}
+
+.coverIm img{
+    width: 100%;
+}
+
+.Detail{
+    width: fit-content;
+    margin: auto;
+    padding-bottom: 30px;
+}
+.deletebtn{
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+}
+
+.deletebtn button{
+    border: none;
+    padding: 15px 45px;
+    border-radius: 0 0 5px 0;
+    font-size: large;
+    cursor: pointer;
+}
+
+.deletebtn button:hover{
+    color: black;
+    background-color: #ffc2c2;
+}
+
+.conf_delete{
+    width: 100%;
+    height: 0;
+    top: 0;
+    overflow: hidden;
+    position: fixed;
+    z-index: 5;
+    background-color: #000000b0;
+    transition: 0.3s;
+}
+
+.m_Cont{
+    width: 100%;
+    max-width: 400px;
+    border: 5px;
+    bottom: 50%;
+    right: 30%;
+    position: absolute;
+    background-color: #b7c3bd;
+}
+
+.m_Cont .title{
+    margin: 0;
+    text-align: center;
+    padding: 10px;
+    font-size: x-large;
+    width: 100%;
+    background-color: #4f5c56;
+    color: black;
+}
+
+.m_Cont .info{
+    padding: 10px 30px;
+    text-align: initial;
+}
+
+.m_Cont .confirm{
+    width: 100%;
+    background-color: aqua;
+}
+
+.m_Cont .confirm button{
+    width: 50%;
+    float: left;
+    border: none;
+    padding: 12px;
+    font-size: large;
+    cursor: pointer;
+    transition: 0.2s;
+    color: black;
+}
+
+.confirm #cancel{
+    background-color: #4f5c56;
+}
+
+.confirm #delete{
+    background-color: #4f5c56;
+}
+
+.confirm #cancel{
+    background-color: #97a69f;
+}
+
+.confirm #delete{
+    background-color: #e29a9a;
+}
+
+.confirm #cancel:hover{
+    background-color: #818e88;
+}
+
+.confirm #delete:hover{
+    background-color: #eccbcb;
+}

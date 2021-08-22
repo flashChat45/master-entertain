@@ -1,0 +1,107 @@
+user:
+    username: root,
+    password: ''
+
+database: master_entertain
+
+tables:
+    users{
+        user_id,
+        user_name,
+        email,
+        telephone,
+        country,
+        province,
+        district,
+        passcode
+    }
+
+    user_role{
+        user_id,
+        is_super_user,
+        is_user
+    }
+
+    streams{
+        stream_id,
+        title,
+        bg_image_url,
+        genre,
+        s_cast,
+        file_url,
+        duration,
+        price,
+        about,
+        user_id
+    }
+
+from php.ini
+    upload_max_filesize = 'manual size';
+    post_max_size = 'manual size';
+
+query for modification
+    create database:
+        $sql = 'DROP DATABASE myDB';
+        mysqli_query($conn, $sql;
+
+    create tables:
+        $sql1 = "CREATE TABLE `streams` ( `stream_id` int(11) NOT NULL, `title` varchar(255) NOT NULL, `bg_image_url` varchar(255) NOT NULL, `genre` varchar(255) NOT NULL, `s_cast` varchar(255) NOT NULL, `file_url` varchar(255) NOT NULL, `duration` int(11) NOT NULL, `price` float NOT NULL, `about` varchar(255) NOT NULL, `user_id` int(11) DEFAULT NULL )";
+
+        $sql2 = "CREATE TABLE `users` ( `user_id` int(11) NOT NULL, `user_name` varchar(255) NOT NULL, `email` varchar(255) NOT NULL, `telephone` varchar(255) NOT NULL, `country` varchar(255) NOT NULL, `province` varchar(255) NOT NULL, `district` varchar(255) NOT NULL, `passcode` varchar(255) NOT NULL )";
+
+        $sql3 = "CREATE TABLE `user_role` ( `is_user` tinyint(1) NOT NULL, `is_super_user` tinyint(1) NOT NULL, `user_id` int(11) NOT NULL )";
+
+        $sql4 = CREATE TABLE `wishlist` ( `wish_id` int(11) NOT NULL, `stream_id` int(11) NOT NULL, `user_id` int(11) NOT NULL)"
+
+        $sql5 = CREATE TABLE `stream_downloads` ( `download_id` int(11) NOT NULL, `stream_id` int(11) NOT NULL, `user_id` int(11) NOT NULL)"
+
+        $sql6 = CREATE TABLE `stream_watches` ( `watch_id` int(11) NOT NULL, `stream_id` int(11) NOT NULL, `user_id` int(11) NOT NULL)"
+
+        $sql7 = "ALTER TABLE `streams` ADD PRIMARY KEY (`stream_id`), ADD KEY `stream_id` (`stream_id`), ADD KEY `user_id` (`user_id`)";        
+
+        $sql8 = "ALTER TABLE `users` ADD PRIMARY KEY (`user_id`), ADD KEY `id` (`user_id`), ADD KEY `id_2` (`user_id`), ADD KEY `user_id` (`user_id`)";
+
+        $sql9 = "ALTER TABLE `user_role` ADD PRIMARY KEY (`user_id`), ADD KEY `id` (`user_id`), ADD KEY `user_id` (`user_id`)";
+
+        $sqlq10 = "ALTER TABLE `wishlist` ADD PRIMARY KEY (`wish_id`), ADD KEY `stream_id` (`stream_id`), ADD KEY `user_id` (`user_id`)";
+        
+        $sql11 = "ALTER TABLE `stream_downloads` ADD PRIMARY KEY (`downlaod_id`), ADD KEY `stream_id` (`stream_id`), ADD KEY `user_id` (`user_id`)";
+
+        $sql12 = "ALTER TABLE `stream_watches` ADD PRIMARY KEY (`watch_id`), ADD KEY `stream_id` (`stream_id`), ADD KEY `user_id` (`user_id`)";
+
+        $sql13 = "ALTER TABLE `streams` ADD CONSTRAINT `streams_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE";
+
+        $sql14 = "ALTER TABLE `user_role` ADD CONSTRAINT `user_role_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;";
+        
+        $sql15 = "ALTER TABLE `wishlist` ADD CONSTRAINT `wishlist_ibfk_1` FOREIGN KEY (`stream_id`) REFERENCES `streams` (`stream_id`) ON DELETE CASCADE ON UPDATE CASCADE";
+        
+        $sql16 = "ALTER TABLE `wishlist` ADD CONSTRAINT `wishlist_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE";
+
+        $sql17 = "ALTER TABLE `stream_downloads` ADD CONSTRAINT `stream_downloads_ibfk_1` FOREIGN KEY (`stream_id`) REFERENCES `streams` (`stream_id`) ON DELETE CASCADE ON UPDATE CASCADE";
+        
+        $sql18 = "ALTER TABLE `stream_downloads` ADD CONSTRAINT `stream_downloads_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE";
+
+        $sql19 = "ALTER TABLE `stream_watches` ADD CONSTRAINT `stream_watches_ibfk_1` FOREIGN KEY (`stream_id`) REFERENCES `streams` (`stream_id`) ON DELETE CASCADE ON UPDATE CASCADE";
+        
+        $sql20 = "ALTER TABLE `stream_watches` ADD CONSTRAINT `stream_watches_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE";
+
+        mysqli_query($conn, $sql1);
+        mysqli_query($conn, $sql2);
+        mysqli_query($conn, $sql3);
+        mysqli_query($conn, $sql4);
+        mysqli_query($conn, $sql5);
+        mysqli_query($conn, $sql6);
+        mysqli_query($conn, $sql7);
+        mysqli_query($conn, $sql8);
+        mysqli_query($conn, $sql9);
+        mysqli_query($conn, $sql10);
+        mysqli_query($conn, $sql11);
+        mysqli_query($conn, $sql12);
+        mysqli_query($conn, $sql13);
+        mysqli_query($conn, $sql14);
+        mysqli_query($conn, $sql15);
+        mysqli_query($conn, $sql16);
+        mysqli_query($conn, $sql17);
+        mysqli_query($conn, $sql18);
+        mysqli_query($conn, $sql19);
+        mysqli_query($conn, $sqli20);

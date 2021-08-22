@@ -1,0 +1,76 @@
+.shCont{
+    margin-top: 160px;
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    flex-wrap:nowrap;
+    flex-direction: column;
+    justify-content:center;
+}
+
+.add{    
+    margin-bottom: 20px;
+}
+
+.add a{
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+    background-color: #bfdbcc;
+    padding: 10px 15px;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.add a:hover{
+    background-color: #81a08f;
+    box-shadow: 0 2px 7px #485950;
+}
+
+.add a span{
+    font-size: larger;
+    font-weight: bolder;
+}
+
+.clipCont{
+    background-color: #b7c3bd;
+    box-shadow: -1px 8px 8px;
+    border-radius: 5px;
+    max-width: 940px;
+    margin: 12px auto;
+    padding: 12px;
+}
+
+.post{
+    display: flex;
+}
+
+@media only screen and (max-width: 700px){
+    .post{
+        flex-direction: column;
+    }
+
+    .post .sCover{
+        margin:auto;
+    }
+}
+
+.post img{
+    width: 100%;
+}
+
+.post .sDet{
+    width: 100%;
+    min-width: 220px;
+    padding: 12px;
+    justify-content: center;
+}
+
+.sDet > .detCont{
+    margin: auto;
+    width: fit-content;
+}
+
+.detCont p{
+    margin: 5px;
+}

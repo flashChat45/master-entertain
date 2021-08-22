@@ -1,0 +1,87 @@
+.clipCOnt{
+    width: fit-content;
+    margin: auto;
+    margin-top: 160px;
+    background-color: #b7c3bd;
+    border-radius: 15px;
+    border: none;
+    padding: 30px;
+}
+
+.clipCOnt input[type=text], .clipCOnt input[type=datetime], textarea{
+    border: none;
+    padding: 5px;
+    outline: none;
+    width: 70%;
+    max-width: 400px;
+    min-width: 230px;
+    font-size: large;
+    margin-bottom: 10px;
+    resize: none;
+    border-radius: 3px;
+}
+
+.clipCOnt input[type=submit]{
+    border: none;
+    outline: none;
+    padding: 15px 25px;
+    border-radius: 3px;
+    font-size: large;
+    cursor: pointer;
+    margin-top: 12px;
+    transition: 0.3s;
+}
+
+.clipCOnt input[type=submit]:hover{
+    color: white;
+    background-color: #1e2321;
+}
+
+.fileUpload {
+	background: #bfdbcc;
+	border-radius: 5px;
+	color: black;
+	margin: 15px auto;
+	overflow: hidden;
+	padding: 10px 15px;
+	position: relative;
+	text-align: center;
+	width: 220px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.fileUpload:hover, .fileUpload:active, .fileUpload:focus {
+	background: #86a292;
+    cursor: pointer;
+}
+.fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    width: 148px;
+    height: 46px;
+    cursor: pointer;
+}
+
+input[type="file"] {
+    position: fixed;
+    right: 100%;
+    bottom: 100%;
+}
+
+.progress{
+    width: 100%;
+    padding: 20px;
+}
+
+.progress-bar{
+	border-radius: 5px;
+    height: 100%;
+    background-color: #5d6b64;
+    color: white;
+}
