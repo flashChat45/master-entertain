@@ -19,55 +19,60 @@
         $user_role = $_POST['myrole'];
         $passcode = htmlspecialchars($_POST['password']);
 
-        $user_sql = "SELECT * FROM users WHERE email = '$email' LIMIT 1";
+        if(!filter_var($email, FILTER_VALIDATE_EMAIL)){            
+            $error = "incorrect email or password";
+        }
+        else{
+            $user_sql = "SELECT * FROM users WHERE email = '$email' LIMIT 1";
 
-        $result = mysqli_query($conn, $user_sql);
-        $user = mysqli_fetch_assoc($result);
+            $result = mysqli_query($conn, $user_sql);
+            $user = mysqli_fetch_assoc($result);
 
-        if(array_filter($user)){   
-            if(password_verify($passcode, $user['passcode'])){
-                $user_id = (int)$user['user_id'];
-                $role_sql = "SELECT * FROM user_role WHERE user_id = $user_id";
-                $roles = mysqli_query($conn, $role_sql);
-                $myrole = mysqli_fetch_assoc($roles);
+            if(array_filter($user)){   
+                if(password_verify($passcode, $user['passcode'])){
+                    $user_id = (int)$user['user_id'];
+                    $role_sql = "SELECT * FROM user_role WHERE user_id = $user_id";
+                    $roles = mysqli_query($conn, $role_sql);
+                    $myrole = mysqli_fetch_assoc($roles);
+                    
+                    if($user_role == "user"){
+                        if($myrole['is_user']){
+                            session_start();
+                            $_SESSION['user_id'] = $user_id;
+                            $_SESSION['user_name'] = $user['user_name'];
+                            $_SESSION['is_user'] = true;
+                            echo $_SESSION['user_name'];
+                            header('Location: user/');
+                            exit();
+                        }
+                        else{
+                            $error = "incorrect email or password";
+                        }
+                    }
+
+                    else if($user_role == "super_user"){
+                        if($myrole['is_super_user']){
+                            session_start();
+                            $_SESSION['user_id'] = $user_id;
+                            $_SESSION['user_name'] = $user['user_name'];
+                            $_SESSION['is_super_user'] = true;
+                            header('Location: super_user/');
+                            exit();
+                        }
+                        else{
+                            $error = "incorrect email or password";
+                        }
+                    }
+                } 
+                else{
+                    $error = "incorrect email or password";
+                }  
                 
-                if($user_role == "user"){
-                    if($myrole['is_user']){
-                        session_start();
-                        $_SESSION['user_id'] = $user_id;
-                        $_SESSION['user_name'] = $user['user_name'];
-                        $_SESSION['is_user'] = true;
-                        echo $_SESSION['user_name'];
-                        header('Location: user/');
-                        exit();
-                    }
-                    else{
-                        $error = "incorrect email or password";
-                    }
-                }
+            }        
 
-                else if($user_role == "super_user"){
-                    if($myrole['is_super_user']){
-                        session_start();
-                        $_SESSION['user_id'] = $user_id;
-                        $_SESSION['user_name'] = $user['user_name'];
-                        $_SESSION['is_super_user'] = true;
-                        header('Location: super_user/');
-                        exit();
-                    }
-                    else{
-                        $error = "incorrect email or password";
-                    }
-                }
-            } 
             else{
                 $error = "incorrect email or password";
-            }  
-            
-        }
-
-        else{
-            $error = "incorrect email or password";
+            }
         }
         mysqli_close($conn);
     }
